@@ -3,6 +3,7 @@
   const cw1 = document.getElementById('cw1')
   const cw2 = document.getElementById('cw2')
   const cw3 = document.getElementById('cw3')
+  const cw4 = document.getElementById('cw4')
   const answer = document.getElementById('answer')
 
   example.addEventListener("click", function() {
@@ -54,5 +55,22 @@
 
       })
   })
+  cw4.addEventListener("click", async () => {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        title: "Łutyt",
+        body: "Kotek miau miau miau",
+        userId: 1,
+      })
+    });
+    const post = await response.json();
+    answer.innerHTML += `<h1>${"dodano post!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"}</h1>`;
+    answer.innerHTML += `<h2>${post.title}</h2>`;
+    answer.innerHTML += `<p>${post.body}</p>`;
+  });
+
+
 
 })();
